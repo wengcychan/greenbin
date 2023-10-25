@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <>
-      <Router>
+      <Router basename="/greenbin">
         <Topbar />
         <div className={ isTabletOrMobile ? 'mediaQuery' : 'container' }>
           <Navbar />
