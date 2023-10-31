@@ -41,6 +41,7 @@ const GreenBinBot = () => {
 		border: '2px solid #d9d9d9',
 		borderRadius: '5px',
 		borderColor: '#d5d5d5',
+		height: '43rem',
 		width: '100%',
 		flex: 1,
 		backgroundColor: '#fff'
@@ -50,6 +51,7 @@ const GreenBinBot = () => {
 		padding: '1rem 1.25rem',
 		backgroundColor: '#ededed',
 		borderBottom: '2px solid #d9d9d9',
+		height: '4rem'
 	}
 
 	const footerStyle = {
@@ -58,7 +60,8 @@ const GreenBinBot = () => {
 		alignItems: 'center',
 		justifyContent: 'center',
 		padding: '10px',
-		borderTop: '2px solid #d9d9d9'
+		borderTop: '2px solid #d9d9d9',
+		height: '4rem'
 	}
 
 	const inputBoxStyle = {
