@@ -6,7 +6,7 @@ The platform features reward and ranking system, making waste sorting engaging. 
 
 
 
-## 👉🏼 Demo
+## 🎥 Demo
 
 🌐 [Live Demo](https://wengcychan.github.io/greenbin/) : Greenbin's Website
 
