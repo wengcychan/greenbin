@@ -32,3 +32,9 @@ The platform features reward and ranking system, making waste sorting engaging. 
 2. Install dependencies with `npm install`
 3. Run the development server with `npm run dev`
 
+## 👥 Contributors
+
+- [Lei](https://github.com/srall123)
+- [Linlin Sun](https://github.com/lanximaomao)
+- [Xiaoqing](https://github.com/haoking123)
+
