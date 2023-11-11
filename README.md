@@ -37,4 +37,5 @@ The platform features reward and ranking system, making waste sorting engaging. 
 - [Lei](https://github.com/srall123)
 - [Linlin Sun](https://github.com/lanximaomao)
 - [Xiaoqing](https://github.com/haoking123)
+- [Wing](https://github.com/wengcychan)
 
