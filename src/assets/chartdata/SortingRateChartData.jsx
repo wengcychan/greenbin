@@ -24,6 +24,7 @@ export const sortingRateChartData = {
 }
 
 export const sortingRateChartOptions = {
+	maintainAspectRatio: false,
 	plugins: {
 		title: {
       display: true,

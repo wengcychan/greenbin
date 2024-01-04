@@ -2,40 +2,46 @@ export const costChartData = {
   labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
   datasets: [
     {
-	  barThickness: 40,
       label: "Mixed",
       data: [301, 330, 316, 295, 285, 290],
-			backgroundColor: "#a2a0a2"
+			backgroundColor: "#a2a0a2",
+      barPercentage: 0.5,
+      categoryPercentage: 1,
     },
     {
-		barThickness: 40,
       label: "Bio",
       data: [138, 120, 130, 146, 157, 156],
-			backgroundColor: "#6c5248"
+			backgroundColor: "#6c5248",
+      barPercentage: 0.5,
+      categoryPercentage: 1,
     },
     {
-		barThickness: 40,
       label: "Plastic",
       data: [40, 50, 52, 60, 53, 46],
-			backgroundColor: "#ffd703"
+			backgroundColor: "#ffd703",
+      barPercentage: 0.5,
+      categoryPercentage: 1,
     },
     {
-		barThickness: 40,
       label: "Carton",
       data: [30, 40, 34, 45, 36, 38],
-			backgroundColor: "#0280b8"
+			backgroundColor: "#0280b8",
+      barPercentage: 0.5,
+      categoryPercentage: 1,
     },
     {
-		barThickness: 40,
-		borderRadius: 3,
+		  borderRadius: 3,
       label: "Other",
       data: [50, 60, 58, 43, 62, 53],
-	  	backgroundColor: "#000000"
+	  	backgroundColor: "#000000",
+      barPercentage: 0.5,
+      categoryPercentage: 1,
     }
   ]
 }
 
 export const costChartOptions = {
+  maintainAspectRatio: false,
   plugins: {
     title: {
       display: true,

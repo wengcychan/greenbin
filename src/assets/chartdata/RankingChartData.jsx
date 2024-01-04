@@ -15,6 +15,7 @@ export const rankingChartData = {
 }
 
 export const rankingChartOptions = {
+	maintainAspectRatio: false,
 	plugins: {
 		title: {
       display: true,

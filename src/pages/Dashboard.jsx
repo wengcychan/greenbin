@@ -18,7 +18,7 @@ import * as Fa6Icons from 'react-icons/fa6'
 
 const Dashboard = () => {
 
-  const [ chart, setChart ] = useState(<Bar data={ costChartData } options={ costChartOptions } />)
+  const [ chart, setChart ] = useState(<Bar data={ costChartData } height={250} options={ costChartOptions } />)
   const [ chartBorderColor, setChartBorderColor ] = useState( costChartColor )
 
   const handleChart = (chartType, borderColor) => {
@@ -61,10 +61,10 @@ const Dashboard = () => {
 		    </div>
       </div>
       <div style={ isTabletOrMobile ? { ...containerStyle, ...mediaQueryContainerStyle }: containerStyle }>
-        <DisplayInfo title='Cost' titleIcon={ <RiIcons.RiMoneyEuroCircleFill /> } backgroundColor={ costChartColor } currentValue='150€' trendIcon={ <BsIcons.BsFillCaretDownFill style={{ color: '#3aa04c' }} /> } trend='10€' handleChart={ () => handleChart(<Bar data={ costChartData } options={ costChartOptions } />, costChartColor) } chart={ chart } />
-        <DisplayInfo title='CO2 Emission' titleIcon={ <Io5Icons.IoLeaf /> } backgroundColor={ emissionChartColor } currentValue='65kg' trendIcon={ <BsIcons.BsFillCaretDownFill style={{ color: '#3aa04c' }} /> } trend='3kg' handleChart={ () => handleChart(<Bar data={ emissionChartData } options={ emissionChartOptions } />, emissionChartColor) } chart={ chart } />
-        <DisplayInfo title='Ranking' titleIcon={ <Fa6Icons.FaMedal /> } backgroundColor={ rankingChartColor } currentValue='No. 1' trendIcon={ <BsIcons.BsFillCaretUpFill style={{ color: '#3aa04c' }} /> } trend='1' handleChart={ () => handleChart(<Line data={ rankingChartData } options={ rankingChartOptions } />, rankingChartColor) } chart={ chart } />
-        <DisplayInfo title='Sorting Rate' titleIcon={ <Io5Icons.IoStatsChartSharp /> } backgroundColor={ sortingRateChartColor } currentValue='53%' trendIcon={ <BsIcons.BsFillCaretUpFill style={{ color: '#3aa04c' }} /> } trend='4%' handleChart={ () => handleChart(<Line data={ sortingRateChartData } options={ sortingRateChartOptions } />, sortingRateChartColor) } chart={ chart } />
+        <DisplayInfo title='Cost' titleIcon={ <RiIcons.RiMoneyEuroCircleFill /> } backgroundColor={ costChartColor } currentValue='150€' trendIcon={ <BsIcons.BsFillCaretDownFill style={{ color: '#3aa04c' }} /> } trend='10€' handleChart={ () => handleChart(<Bar data={ costChartData } height={250} options={ costChartOptions } />, costChartColor) } chart={ chart } />
+        <DisplayInfo title='CO2 Emission' titleIcon={ <Io5Icons.IoLeaf /> } backgroundColor={ emissionChartColor } currentValue='65kg' trendIcon={ <BsIcons.BsFillCaretDownFill style={{ color: '#3aa04c' }} /> } trend='3kg' handleChart={ () => handleChart(<Bar data={ emissionChartData } height={250} options={ emissionChartOptions } />, emissionChartColor) } chart={ chart } />
+        <DisplayInfo title='Ranking' titleIcon={ <Fa6Icons.FaMedal /> } backgroundColor={ rankingChartColor } currentValue='No. 1' trendIcon={ <BsIcons.BsFillCaretUpFill style={{ color: '#3aa04c' }} /> } trend='1' handleChart={ () => handleChart(<Line data={ rankingChartData } height={250} options={ rankingChartOptions } />, rankingChartColor) } chart={ chart } />
+        <DisplayInfo title='Sorting Rate' titleIcon={ <Io5Icons.IoStatsChartSharp /> } backgroundColor={ sortingRateChartColor } currentValue='53%' trendIcon={ <BsIcons.BsFillCaretUpFill style={{ color: '#3aa04c' }} /> } trend='4%' handleChart={ () => handleChart(<Line data={ sortingRateChartData } height={250} options={ sortingRateChartOptions } />, sortingRateChartColor) } chart={ chart } />
       </div>
     </div>
   )

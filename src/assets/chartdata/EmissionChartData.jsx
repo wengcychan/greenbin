@@ -13,7 +13,6 @@ export const emissionChartData = {
       type: 'line',
     },
     {
-		barThickness: 40,
       label: 'Volume of Mixed Waste',
       data: [86, 53, 76, 56, 67, 64],
       borderColor: "#628D2A",
@@ -21,12 +20,15 @@ export const emissionChartData = {
 			borderRadius: 3,
       stack: 'combined',
       yAxisID: 'y1',
-      type: 'bar'
+      type: 'bar',
+      barPercentage: 0.5,
+      categoryPercentage: 1,
     }
   ]
 }
 
 export const emissionChartOptions = {
+  maintainAspectRatio: false,
   plugins: {
     title: {
       display: true,
