@@ -1,4 +1,4 @@
-import { AchievementTableData } from "../../assets/tabledata/AchievementTableData"
+import { AchievementTableData } from "../../data/tabledata/AchievementTableData"
 
 const AchievementTable = () => {
 

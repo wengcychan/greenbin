@@ -1,5 +1,5 @@
 import Header from '../components/Header'
-import sortingTip from '../images/sorting_tip.png'
+import sortingTip from '../assets/sorting_tip.png'
 import GreenBinBot from '../components/GreenBinBot'
 import { useMediaQuery } from 'react-responsive'
 

@@ -1,4 +1,4 @@
-import { RankingTableData } from "../../assets/tabledata/RankingTableData"
+import { RankingTableData } from "../../data/tabledata/RankingTableData"
 import { useMediaQuery } from 'react-responsive'
 
 const RankingTable = () => {

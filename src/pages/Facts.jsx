@@ -1,6 +1,6 @@
-import wasteCost from '../images/facts/waste_cost.png'
-import mixWasteCompo from '../images/facts/mixed_waste_composition.png'
-import wasteCompo from '../images/facts/waste_composition.png'
+import wasteCost from '../assets/facts/waste_cost.png'
+import mixWasteCompo from '../assets/facts/mixed_waste_composition.png'
+import wasteCompo from '../assets/facts/waste_composition.png'
 import Header from '../components/Header'
 import { useMediaQuery } from 'react-responsive'
 

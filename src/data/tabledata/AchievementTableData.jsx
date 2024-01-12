@@ -1,7 +1,7 @@
-import waterBadge from '../../images/badges/water.png'
-import sunlightBadge from '../../images/badges/sunlight.png'
-import seedBadge from '../../images/badges/seed.png'
-import treeBadge from '../../images/badges/tree.png'
+import waterBadge from '../../assets/badges/water.png'
+import sunlightBadge from '../../assets/badges/sunlight.png'
+import seedBadge from '../../assets/badges/seed.png'
+import treeBadge from '../../assets/badges/tree.png'
 
 export const AchievementTableData = [
 	{

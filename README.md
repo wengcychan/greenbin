@@ -1,4 +1,4 @@
-# <img src="./src/images/greenbin/GreenBin.ico" alt="GreenBin Logo" width="35">  Greenbin 
+# <img src="./public/GreenBin.ico" alt="GreenBin Logo" width="35">  Greenbin 
 
 GreenBin is an innovative waste management system that incentivizes residents to increase waste sorting and reduce waste, thus reducing costs and carbon emissions while promoting environmental sustainability.
 

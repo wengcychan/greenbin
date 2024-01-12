@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { NavbarData } from '../assets/NavbarData'
+import { NavbarData } from '../data/NavbarData'
 import './Navbar.css'
 import { IconContext } from 'react-icons'
 import * as AiIcons from 'react-icons/ai'

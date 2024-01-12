@@ -1,5 +1,5 @@
-import logo from '../images/greenbin/logo.png'
-import profilePic from '../images/profile_pic.png'
+import logo from '../assets/greenbin/logo.png'
+import profilePic from '../assets/profile_pic.png'
 import './Topbar.css'
 import { useMediaQuery } from 'react-responsive'
 

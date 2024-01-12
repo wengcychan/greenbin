@@ -7,10 +7,10 @@ import { Bar } from "react-chartjs-2"
 import Header from "../components/Header"
 import DisplayInfo from "../components/dashboard/DisplayInfo"
 import Goal from "../components/dashboard/Goal"
-import { costChartData, costChartOptions, costChartColor} from "../assets/chartdata/CostChartData"
-import { emissionChartData, emissionChartOptions, emissionChartColor } from "../assets/chartdata/EmissionChartData"
-import { rankingChartData, rankingChartOptions, rankingChartColor } from "../assets/chartdata/RankingChartData"
-import { sortingRateChartData, sortingRateChartOptions, sortingRateChartColor } from "../assets/chartdata/SortingRateChartData"
+import { costChartData, costChartOptions, costChartColor} from "../data/chartdata/CostChartData"
+import { emissionChartData, emissionChartOptions, emissionChartColor } from "../data/chartdata/EmissionChartData"
+import { rankingChartData, rankingChartOptions, rankingChartColor } from "../data/chartdata/RankingChartData"
+import { sortingRateChartData, sortingRateChartOptions, sortingRateChartColor } from "../data/chartdata/SortingRateChartData"
 import * as BsIcons from 'react-icons/bs'
 import * as RiIcons from 'react-icons/ri'
 import * as Io5Icons from 'react-icons/io5'
