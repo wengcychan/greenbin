@@ -1,32 +1,27 @@
-import Header from "../components/Header"
-import { useMediaQuery } from 'react-responsive'
 import RankingTable from "../components/tables/RankingTable"
 import AchievementTable from "../components/tables/AchievementTable"
+import styled from "styled-components"
+import { device } from '../styles/BreakPoints'
 
-const Ranking = () => {
+const Ranking = () => (
+  <>
+    <h1>Check out your ranking and achievements</h1>
+    <Container>
+      <RankingTable />
+      <AchievementTable />
+    </Container>
+  </>    
+)
 
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
-
-  const containerStyle = {
-    display: 'flex', 
-    justifyContent: 'space-between',
-    marginTop: '30px'  
+const Container = styled.div`
+  display: flex; 
+  justify-content: space-between;
+  margin-top: 1em;
+  gap: 2em;
+  
+  @media ${device.md} {
+    flex-direction: column;
   }
-
-  const mediaQueryContainerStyle = {
-    flexDirection: 'column',
-    gap: '20px'
-  }
-
-  return (
-    <div className='content'>
-      <Header text='Check out your ranking and achievements'/>
-      <div style={ isTabletOrMobile ? { ...containerStyle, ...mediaQueryContainerStyle } : containerStyle }>
-        <RankingTable />
-        <AchievementTable />
-      </div>
-    </div>    
-  )
-}
+`
 
 export default Ranking

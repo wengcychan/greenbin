@@ -1,45 +1,52 @@
-import Header from '../components/Header'
 import sortingTip from '../assets/sorting_tip.png'
 import GreenBinBot from '../components/GreenBinBot'
-import { useMediaQuery } from 'react-responsive'
+import styled from "styled-components"
+import { device } from '../styles/BreakPoints'
 
-const Tips = () => {
+const Tips = () => (
+  <>
+    <h1>Discover recycling inspiration</h1>
+    <Container>
+      <SortingTipsContainer>
+        <p>Sorting Tips</p>
+        <img src={ sortingTip } alt='sorting tip' width='400px' height='578px'/>
+      </SortingTipsContainer>
+      <GreenBinBot/>
+    </Container>
+  </>
+)
 
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+
+const Container = styled.div`
+  display: flex; 
+  justify-content: space-between;
+  margin-top: 1em;
+  gap: 2em;
   
-  const containerStyle = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    marginTop: '30px'
+  @media ${device.md} {
+    flex-direction: column;
+  }
+`
+
+const SortingTipsContainer = styled.div`
+  flex: 1;
+  background-color: ${({theme}) => theme.colors.white};
+  border-radius: 0.5em;
+  border: 2px solid ${({theme}) => theme.colors.border};
+  text-align: center;
+
+  p {
+    padding-top: 1.8em;
+    font-weight: bold;
+    border-radius: 0.5em;
+    font-size: ${({theme}) => theme.fontSizes.large};
+    font-family: Georgia;
+    color: ${({theme}) => theme.colors.darkText};
   }
 
-  const mediaQueryContainerStyle = {
-    flexDirection: 'column',
-    gap: '20px'
+  img {
+    margin: 2em;
   }
-
-  const sortingTipsStyle = {
-    flex: 1,
-    backgroundColor: '#ffffff',
-    marginRight: '30px',
-    borderRadius: '5px',
-    border: '2px solid #d9d9d9'
-  }
-
-  return (
-    <div className='content'>
-      <Header text='Discover recycling inspiration'/>
-      <div style={ isTabletOrMobile ? { ...containerStyle, ...mediaQueryContainerStyle } : containerStyle }>
-        <div style={ isTabletOrMobile ? { ...sortingTipsStyle, ...{ marginRight: '0px' } } : sortingTipsStyle }>
-          <div style={{ height: '65px' }}>
-            <h3 style={{ padding: '20px', color: '#494949' }} >Sorting Tips</h3>
-          </div>
-          <img src={ sortingTip } alt='sorting tip' width='80%' style={{ marginLeft: '15px' }}/>
-        </div>
-        <GreenBinBot/>
-      </div>
-    </div>
-  )
-}
+`
 
 export default Tips

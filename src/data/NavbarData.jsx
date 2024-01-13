@@ -1,6 +1,6 @@
 import * as FaIcons from 'react-icons/fa'
 
-export const NavbarData = [
+export const navbarData = [
   {
     title: 'Dashboard',
     path: '/',

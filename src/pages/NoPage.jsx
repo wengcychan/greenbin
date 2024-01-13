@@ -1,9 +1,3 @@
-const NoPage= () => {
-  return (
-    <div className='content'>
-      <p>Page not found</p>
-    </div>
-  )
-}
+const NoPage= () => <p>Page not found</p>
 
 export default NoPage

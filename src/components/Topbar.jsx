@@ -1,26 +1,62 @@
 import logo from '../assets/greenbin/logo.png'
-import profilePic from '../assets/profile_pic.png'
-import './Topbar.css'
-import { useMediaQuery } from 'react-responsive'
+import { user } from '../data/user'
+import styled from 'styled-components'
+import { device } from '../styles/BreakPoints'
 
-const Topbar = () => {
+const Topbar = () => (
+  <Container>
+    <Logo>
+      <img src={logo} alt='logo' width='38' height='32'/>
+      <span>GreenBin</span>
+    </Logo>
+    <UserInfo>
+      <span>
+        Welcome, 
+        <span className='userName'>{user.username}</span>
+        !
+      </span>
+      <img src={user.icon.src} alt={user.icon.alt} width='38' height='38'/>
+    </UserInfo>
+  </Container>
+)
 
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+const Container = styled.div`
+  padding: 0 3em;
+  display: flex;
+  justify-content: space-between;
+  background-color: ${({theme}) => theme.colors.topbarBackground};
+  height: ${({theme}) => theme.layout.topbarHeight};
+  color: ${({theme}) => theme.colors.white};
+`
 
-  return (
-    <>
-      <div className='topbar'>
-        <div id='appNameContainer'>
-          <img src={logo} alt='logo' width='38' height='32' style={ isTabletOrMobile ? { marginLeft: '20px' }: {}}/>
-          <div id='appName'>GreenBin</div>
-        </div>
-        <div id='userInfo' style={ isTabletOrMobile ? { display: 'none' }: {} }>
-          <span>Welcome,<span id='userName'>User123</span> !</span>
-          <img src={profilePic} alt='profile picture' id='profilePic' />
-        </div>
-      </div>
-    </>
-  )
-}
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 8px;
+    font-size: ${({theme}) => theme.fontSizes.extraLarge};
+    font-weight: bold;
+  }
+`
+
+const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
+
+  .userName {
+    margin-left: 5px;
+    font-weight: bold;
+  }
+
+  img {
+    border-radius: 50%;
+    margin-left: 15px;
+  }
+
+  @media ${device.sm} {
+    display: none;
+  }
+`
 
 export default Topbar

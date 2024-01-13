@@ -1,67 +1,72 @@
 import * as AiIcons from 'react-icons/ai'
 import RewardCheckBox from './RewardCheckBox'
-import { useMediaQuery } from 'react-responsive'
+import styled from "styled-components"
 
-const Goal = ({ progress, text }) => {
+const Goal = ({ progress, text }) => (
+	<Container>
+		<p className='title'>My Goal</p>
+		<p>{ text }</p>
+		<ProgressBar $progress={progress}>
+			<div className='progress'></div>
+			<div className='iconContainer'>
+				<AiIcons.AiFillGift className='icon' />
+			</div>
+		</ProgressBar>
+		<RewardCheckBox />
+	</Container>
+)
 
-	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+const Container = styled.div`
+	border: 2px solid ${({theme}) => theme.colors.border};
+	border-radius: 0.5em;
+	width: 50%;
+	padding: 1em;
+	background-color: ${({theme}) => theme.colors.white};
+	flex: 1;
+	color: ${({theme}) => theme.colors.darkGreyText};
+	font-weight: bold;
 
-	const containerStyle = {
-		border: '2px solid #e9e9e9',
-		borderRadius: '5px',
-		width: '50%',
-		padding: '15px',
-		backgroundColor: '#fafafa',
-		flex: 1,
-		marginRight: '30px'
+	.title {
+		margin-bottom: 0.8em;
 	}
 
-	const progressBarStyle = {
-    backgroundColor: '#e9e9e9',
-		position: 'relative',
-		marginTop: '2px',
-		marginBottom: '20px',
-		width: '90%'
+	@media (max-width: 1024px) {
+		width: 100%;
   }
+`
 
-  const progressStyle = {
-		borderRadius: '10px',
-    height: '20px',
-    backgroundColor: '#006600',
-    width: `${progress}%`
-  }
+const ProgressBar = styled.div`
+	background-color: ${({theme}) => theme.colors.grey};
+	position: relative;
+	margin-top: 0.2em;
+	margin-bottom: 1.5em;
+	width: 90%;
+	border-radius: 2em;
 
-	const circleContainer = {
-		backgroundColor: '#006600',
-		position: 'absolute',
-		top: '0px',
-		right: '0px',
-		transform: 'translate(50%, -25%)',
-		height: '30px',
-		width: '30px',
-		borderRadius: '50px',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
+	.progress {
+		border-radius: 2em;
+    height: 1.2em;
+    background-color: #006600;
+    width: ${({ $progress }) => $progress}%;
 	}
 
-	const progressIcon = {
-		color: '#fff'
+	.iconContainer {
+		background-color: #006600;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		transform: translate(50%, -25%);
+		height: 30px;
+		width: 30px;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
-	return (
-		<div style={ isTabletOrMobile ? { ...containerStyle, ...{ width: '100%' } } : containerStyle }>
-			<h3 style={{ marginBottom: '15px', color: '#1a3715' }}>My Goal</h3>
-			<p style={{ fontWeight: 600, color: '#1a3715' }}>{ text }</p>
-			<div style={ progressBarStyle }>
-      	<div style={ progressStyle }></div>
-				<div style={ circleContainer }>
-					<AiIcons.AiFillGift style={ progressIcon } />
-				</div>
-    	</div>
-			<RewardCheckBox />
-		</div>
-	)
-}
+	.icon {
+		color: ${({theme}) => theme.colors.white};
+	}
+`
 
 export default Goal

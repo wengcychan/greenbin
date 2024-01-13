@@ -1,85 +1,93 @@
-import { RankingTableData } from "../../data/tabledata/RankingTableData"
-import { useMediaQuery } from 'react-responsive'
+import { user } from "../../data/user"
+import { rankingTableData } from "../../data/tabledata/rankingTableData"
+import styled from "styled-components"
+import { v4 as uuidv4 } from 'uuid'
+import { TableContainer, Table, TableNameHeader } from "../../styles/Table"
 
-const RankingTable = () => {
+const RankingTable = () => (
+	<TableContainer>
+		<Table>
+			<TableNameHeader>
+				<tr>
+					<th colSpan="4">Ranking</th>
+				</tr>
+			</TableNameHeader>
+			<TableInfoHeader>
+				<tr>
+					<th className="ranking">#</th>
+					<th className="community">Community</th>
+					<th className="rate">Rate</th>
+					<th className="type">Type</th>
+				</tr>
+			</TableInfoHeader>
+			<tbody>
+				{rankingTableData.map((item, index) =>
+					<TableRow key={ uuidv4() } $index={index} $community={item.community}>
+						<td className="ranking" aria-label={item.rankingAriaLabel ? item.rankingAriaLabel : ""}>{ item.ranking }</td>
+						<td>{ item.community }</td>
+						<td className="community"><Badge $rate={item.rate}>{ item.rate }%</Badge></td>
+						<td>{ item.type }</td>
+					</TableRow >
+				)}
+			</tbody>
+		</Table>
+	</TableContainer>
+)
 
-	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+const TableInfoHeader = styled.thead`
+	height: 2.5em;
 
-	const getBadgeBackgroundColor = (rate) => {
-		if (rate >= 90 && rate <= 100)
+	.ranking {
+		width: 10%;
+	}
+
+	.community {
+		width: 30%;
+		text-align: left;
+	}
+
+	.rate {
+		width: 20%;
+	}
+
+	.type {
+		text-align: left;
+	}
+`
+
+const TableRow = styled.tr`
+	height: 2.5em;
+	background-color: ${({$index, $community, theme}) => $community === user.community 
+		? theme.colors.yellowHighlight
+		: $index % 2 ? '' : theme.colors.grey};
+
+	.ranking,
+	.community {
+		text-align: center;
+	}
+`
+
+const Badge = styled.span`
+	padding: 0.35em 0.65em;
+	font-size: 0.75em;
+	font-weight: bold;
+	color: ${({theme}) => theme.colors.white};
+	border-radius: 0.5em;
+	display: inline-block;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+
+	background-color: ${({$rate}) => {
+		if ($rate >= 90 && $rate <= 100)
 			return '#107d0c'
-		else if (rate >= 70 && rate < 90)
+		else if ($rate >= 70 && $rate < 90)
 			return '#0066cc'
-		else if (rate >= 40 && rate < 70)
+		else if ($rate >= 40 && $rate < 70)
 			return '#ed9a01'
 		else
 			return '#cf0018'
-	}
-
-	const tableContainerStyle = {
-		border: '2px solid #e9e9e9',
-		borderRadius: '10px',
-		overflow: 'hidden',
-		flex: 1,
-		marginRight: '30px'
-	}
-
-	const tableStyle = {
-		borderCollapse: 'collapse',
-		backgroundColor: '#fff',
-		width: '100%'
-	}
-
-	const headerStyle = {
-		borderBottom: '2px solid #e9e9e9',
-		backgroundColor: '#f4f4f4',
-		fontSize: '1.2rem',
-		textAlign: 'left',
-		paddingLeft: '15px',
-		height: '60px' 
-	}
-
-	const badgeStyle = {
-    padding: '0.35em 0.65em',
-    fontSize: '0.75em',
-    fontWeight: 700,
-    color: '#fff',
-    borderRadius: '0.375rem',
-    display: 'inline-block',
-    textAlign: 'center',
-    whiteSpace: 'nowrap',
-    verticalAlign: 'baseline'
-	}
-
-	return (
-		<div style={ isTabletOrMobile ? { ...tableContainerStyle, ...{ marginRight: '0px' } } : tableContainerStyle }>
-			<table style={ tableStyle }>
-				<thead>
-					<tr>
-						<th style={ headerStyle } colSpan="4">Ranking</th>
-					</tr>
-				</thead>
-				<thead style={{ height: '45px' }}>
-					<tr>
-						<th style={{ width: '10%' }}>#</th>
-						<th style={{ width: '30%', textAlign: 'left' }}>Community</th>
-						<th style={{ width: '20%' }}>Rate</th>
-						<th style={{ textAlign: 'left' }}>Type</th>
-					</tr>
-				</thead>
-				<tbody>
-					{RankingTableData.map((item, index) =>
-						<tr key={ index } style={{ ...{ height: '45px' }, ...(index % 2 ? { backgroundColor: '#e9e9e9' } : {}), ...(index === 0 ? { backgroundColor: '#fcfeb5' } : {}) }}>
-							<td style={{ textAlign: 'center' }}>{ item.no }</td>
-							<td>{ item.community }</td>
-							<td style={ {textAlign: 'center' }}><span style={{ ...badgeStyle, backgroundColor: getBadgeBackgroundColor(item.rate) }}>{ item.rate }%</span></td>
-							<td>{ item.type }</td>
-						</tr>
-					)}
-				</tbody>
-			</table>
-		</div>
-	)
-}
+	}}
+`
 
 export default RankingTable

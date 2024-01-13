@@ -1,30 +1,25 @@
 import wasteCost from '../assets/facts/waste_cost.png'
 import mixWasteCompo from '../assets/facts/mixed_waste_composition.png'
 import wasteCompo from '../assets/facts/waste_composition.png'
-import Header from '../components/Header'
-import { useMediaQuery } from 'react-responsive'
+import styled from 'styled-components'
+import { device } from '../styles/BreakPoints'
 
-const Facts = () => {
+const Facts = () => (
+  <>
+    <h1>Facts and data about your waste ...</h1>
+    <Img src={ wasteCost } alt="cost of waste" width="70%" height="auto" />
+    <Img src={ mixWasteCompo } alt="mixed waste composition" width="70%" height="auto" />
+    <Img src={ wasteCompo } alt="waste composition" width="70%" height="auto" />
+  </>
+)
 
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+const Img = styled.img`
+  margin-top: 1em;
 
-  const imageStyle = {
-    width: '70%',
-    marginTop: 20
+  @media ${device.md} {
+    width: 100%;
+    height: 100%;
   }
-
-  const mediaQueryImageStyle = {
-    width: '100%'
-  }
-
-  return (
-    <div className='content'>
-      <Header text='Facts and data about your waste ...'/>
-      <img src={ wasteCost } alt="cost of waste" style={ isTabletOrMobile ? { ...imageStyle, ...mediaQueryImageStyle } : imageStyle } />
-			<img src={ mixWasteCompo } alt="mixed waste composition" style={ isTabletOrMobile ? { ...imageStyle, ...mediaQueryImageStyle } : imageStyle } />
-      <img src={ wasteCompo } alt="waste composition" style={ isTabletOrMobile ? { ...imageStyle, ...mediaQueryImageStyle } : imageStyle } />
-    </div>
-  )
-}
+`
 
 export default Facts

@@ -1,91 +1,102 @@
 import * as BsIcons from 'react-icons/bs'
-import { useMediaQuery } from 'react-responsive'
+import styled from 'styled-components'
 
-const DisplayInfo = ({ title, titleIcon, backgroundColor, currentValue, trendIcon, trend, handleChart }) => {
-
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
-
-	const darkenColor = (color, percentage) => {
-		const hex = color.replace(/^#/, '')
-		const r = parseInt(hex.slice(0, 2), 16)
-		const g = parseInt(hex.slice(2, 4), 16)
-		const b = parseInt(hex.slice(4, 6), 16)
-	
-		const darkenedR = Math.max(0, Math.floor(r * (1 - percentage / 100)))
-		const darkenedG = Math.max(0, Math.floor(g * (1 - percentage / 100)))
-		const darkenedB = Math.max(0, Math.floor(b * (1 - percentage / 100)))
-	
-		const darkenedColor = `#${darkenedR.toString(16).padStart(2, '0')}${darkenedG.toString(16).padStart(2, '0')}${darkenedB.toString(16).padStart(2, '0')}`
-		return darkenedColor;
-	}
-
-	const displayStyle = {
-		backgroundColor: backgroundColor,
-		width: '23%',
-		borderRadius: '5px',
-	}
-
-	const infoStyle = {
-		display: 'flex',
-		justifyContent: 'space-between',
-		alignItems: 'flex-end',
-		padding: '8px 15px 2px'
-	}
-
-	const titleIconStyle = {
-		fontSize: '2.5rem',
-		opacity: '20%',
-		marginBottom: '5px',
-	}
-
-	const viewDetailStyle = {
-		backgroundColor: '#fafafa',
-		borderBottomLeftRadius: '5px',
-		borderBottomRightRadius: '5px',
-		height: '20%',
-		border: `2px solid ${backgroundColor}`
-	}
-
-	const buttonStyle = {
-    backgroundColor: 'transparent',
-    border: 'none',
-    outline: 'none',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-		justifyContent: 'space-between',
-		width: '100%'
-  }
-
-	const arrowIconStyle = {
-		fontSize: '1.1rem',
-		marginTop: '0.3rem',
-		marginRight: '1rem',
-		color: darkenColor(backgroundColor, 10)
-	}
-
-	return (
-		<div style={ isTabletOrMobile ? { ...displayStyle, ...{ width: '70%' } } : displayStyle }>
-			<div style={ infoStyle }>
-				<div style={{ flex: 1 }}>
-					<p style={{ fontSize: '1.1rem', fontWeight: 600, lineHeight: '2rem' }}>{ title }</p>
-					<p style={{ fontSize: '1.8rem', fontWeight: 700 }}>{ currentValue }</p>
-					<div>
-						{ trendIcon } <span style={{ fontSize: '0.9rem', fontWeight: 600, lineHeight: '3rem' }}>{ trend }</span>
-					</div>
-				</div>
-				<div style={ titleIconStyle }>
-					{ titleIcon }
+const DisplayInfo = ({ title, titleIcon, backgroundColor, currentValue, trendIcon, trend, handleChart }) => (
+	<Container $backgroundColor={backgroundColor}>
+		
+		<Info>
+			<div className='infoText'>
+				<p className='title'>{ title }</p>
+				<p className='value'>{ currentValue }</p>
+				<div className='trend'>
+					{ trendIcon }
+					<span className='trendText'>{ trend }</span>
 				</div>
 			</div>
-			<div style={ viewDetailStyle }>
-				<button style={ buttonStyle } onClick={ handleChart }>
-					<div style={{ marginLeft: '1rem', color: darkenColor(backgroundColor, 10), fontWeight:600 }}>View Details</div> 
-					<div>{ <BsIcons.BsFillArrowRightCircleFill style={ arrowIconStyle } /> }</div>
-				</button>
+			<div className='icon'>
+				{ titleIcon }
 			</div>
-		</div>
-	)
-}
+		</Info>
+
+		<Button $backgroundColor={backgroundColor} onClick={ handleChart } >
+			<div className='text'>View Details</div> 
+			<div className='icon'><BsIcons.BsFillArrowRightCircleFill /></div>
+		</Button>
+
+	</Container>
+)
+
+const Container = styled.div`
+	background-color: ${({$backgroundColor}) => $backgroundColor};
+	width: 23%;
+	border-radius: 0.5em;
+
+	@media (max-width: 1024px) {
+		width: 70%;
+	}
+`
+
+const Info = styled.div`
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5em 1em 0.2em;
+	border-radius: 0.5em;
+
+	.infoText {
+		flex: 1;
+	}
+
+	.title {
+		font-size: ${({theme}) => theme.fontSizes.medium};
+		font-weight: 600;
+		line-height: 2em; 
+	}
+
+	.value {
+		font-size: 1.8rem;
+		font-weight: 700;
+	}
+
+	.trend {
+		display: flex;
+		align-items: center;
+	}
+
+	.trendText {
+		font-size: ${({theme}) => theme.fontSizes.small};
+		font-weight: 600;
+		line-height: 3em;
+	}
+
+	.icon {
+		font-size: 2.5rem;
+		opacity: 20%;
+	}
+`
+
+const Button = styled.button`
+	background-color: ${({theme}) => theme.colors.white};
+	height: 20%;
+	border: 2px solid ${({$backgroundColor}) => $backgroundColor};
+	border-radius: 0 0 0.5em 0.5em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	color: ${({theme}) => theme.colors.greyText};
+
+	.text {
+		margin-left: 1em;
+		font-weight: 600;
+		font-size: ${({theme}) => theme.fontSizes.small};
+	}
+
+	.icon {
+		font-size: ${({theme}) => theme.fontSizes.medium};
+		margin-top: 0.3em;
+		margin-right: 0.5em;
+		opacity: 60%;
+	}
+`
 
 export default DisplayInfo

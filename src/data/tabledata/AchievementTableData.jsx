@@ -3,7 +3,7 @@ import sunlightBadge from '../../assets/badges/sunlight.png'
 import seedBadge from '../../assets/badges/seed.png'
 import treeBadge from '../../assets/badges/tree.png'
 
-export const AchievementTableData = [
+export const achievementTableData = [
 	{
 		img: {
 			src: waterBadge,

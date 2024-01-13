@@ -1,56 +1,57 @@
-import { AchievementTableData } from "../../data/tabledata/AchievementTableData"
+import { achievementTableData } from "../../data/tabledata/achievementTableData"
+import styled from "styled-components"
+import { v4 as uuidv4 } from 'uuid'
+import { TableContainer, Table, TableNameHeader } from "../../styles/Table"
 
-const AchievementTable = () => {
+const AchievementTable = () => (
+	<TableContainer>
+		<Table>
+			<TableNameHeader>
+				<tr>
+					<th colSpan="4">Achievements</th>
+				</tr>
+			</TableNameHeader>
+			<tbody>
+				{achievementTableData.map(item =>
+					<TableRow key={ uuidv4() }>
+						<TableData>
+							<img src={ item.img.src } alt={ item.img.alt } width="60px" height="60px"/>
+							<div>
+								<p className="achievement">{ item.achievement }</p>
+								<p className="date">{ item.date }</p>
+							</div>
+						</TableData>
+					</TableRow>
+				)}
+			</tbody>
+		</Table>
+	</TableContainer>
+)
 
-	const tableContainerStyle = {
-		border: '2px solid #e9e9e9',
-		borderRadius: '10px',
-		overflow: 'hidden',
-		flex: 1
+const TableRow = styled.tr`
+	border-bottom: 1px solid ${({theme}) => theme.colors.grey};
+
+	&:last-child {
+    border-bottom: none;
+  }
+`
+
+const TableData = styled.td`
+	display: flex;
+	align-items: center;
+	height: 100%;
+	gap: 2em;
+	padding: 0 1.5em;
+
+	.achievement {
+		font-size: ${({theme}) => theme.fontSizes.medium};
+		margin-bottom: 5px;
 	}
 
-	const tableStyle = {
-		borderCollapse: 'collapse',
-		width: '100%',
-		backgroundColor: '#fff',
-		height: '100%'
+	.date {
+		font-size: ${({theme}) => theme.fontSizes.small};
+		color: ${({theme}) => theme.colors.greyText};
 	}
-
-	const headerStyle = {
-		borderBottom: '2px solid #e9e9e9',
-		backgroundColor: '#f4f4f4',
-		fontSize: '1.2rem',
-		textAlign: 'left',
-		paddingLeft: '15px',
-		height: '60px' 
-	}
-
-	return (
-		<div style={ tableContainerStyle }>
-			<table style={ tableStyle }>
-				<thead>
-					<tr>
-						<th style={ headerStyle } colSpan="4">Achievements</th>
-					</tr>
-				</thead>
-				<tbody>
-					{AchievementTableData.map((item, index) =>
-						<tr key={ index } style={{ borderBottom: '1px solid #ddd' }}>
-							<td style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-								<div style={{ flex: 1 }}>
-									<img src={ item.img.src } alt={ item.img.alt } style={{ marginLeft: '20px', width: '60%' }}/>
-								</div>
-								<div style={{ flex: 4 }}>
-									<p style={{ fontSize: '1.15rem', marginBottom: '5px' }}>{ item.achievement }</p>
-									<p style={{ fontSize: '0.95rem', color: '#7a7a7a' }}>{ item.date }</p>
-								</div>
-							</td>
-						</tr>
-					)}
-				</tbody>
-			</table>
-		</div>
-	)
-}
+`
 
 export default AchievementTable

@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import './GreenBinBotChatbox.css'
 import logo from '../assets/greenbin/logo.png'
-import profilePic from '../assets/profile_pic.png'
+import styled from 'styled-components'
+import { user } from '../data/user'
 
 const GreenBinBot = () => {
 
@@ -35,86 +35,131 @@ const GreenBinBot = () => {
     setInputMessage('')
   }
 
-	const containerStyle = {
-		display: 'flex',
-		flexDirection: 'column',
-		border: '2px solid #d9d9d9',
-		borderRadius: '5px',
-		borderColor: '#d5d5d5',
-		height: '43rem',
-		width: '100%',
-		flex: 1,
-		backgroundColor: '#fff'
-	}
-
-	const headerStyle = {
-		padding: '1rem 1.25rem',
-		backgroundColor: '#ededed',
-		borderBottom: '2px solid #d9d9d9',
-		height: '4rem'
-	}
-
-	const footerStyle = {
-		backgroundColor: '#ededed',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		padding: '10px',
-		borderTop: '2px solid #d9d9d9',
-		height: '4rem'
-	}
-
-	const inputBoxStyle = {
-		width: '100%',
-		height: '35px',
-		fontSize: '16px',
-		border: '0px',
-		borderRadius: '5px',
-		textIndent: '10px',
-		outline: 'none'
-	}
-
-	const sendButtonStyle = {
-		width:'70px',
-		height: '35px',
-		fontSize: '16px',
-		backgroundColor: '#007bff',
-		color: '#fff',
-		padding: '0px 10px',
-		border: '0px',
-		borderRadius: '5px'
-	}
-	
 	return (
-		<div style={ containerStyle }>
-			<div style={ headerStyle }>
-				<p style={{ fontSize: '120%', fontWeight: 600 }}>GreenBinBot</p>
-			</div>
-      <div className="chat-body">
-        <div className="direct-chat-messages">
-          {messages.map((message) => (
-            <div key={message.id} className={`direct-chat-msg ${message.user === 'User123' ? 'right' : ''}`}>
-              <div className="direct-chat-infos clearfix">
-                <span className="direct-chat-name">{message.user}</span>
-              </div>
-              <img className="direct-chat-img" src={ message.user === 'User123' ? profilePic : logo } alt={ message.user === 'User123' ? 'user' : 'logo' } width="38" height="32" />
-              <div className="direct-chat-text" style={{ textAlign: message.user === 'User123' ? 'right' : 'left' }}>
-                {message.text}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-			<div style={ footerStyle }>
-				<div style={{ flex: 10 }}>
-					<input type="text" name="message" placeholder="Type Message ..." value={ inputMessage } onChange={ (event) => setInputMessage(event.target.value) } style={ inputBoxStyle } />
-				</div>
-				<span style={{ flex: 1 }}>
-					<button id="submit" style={ sendButtonStyle } onClick={ handleSend }>Send</button>
-				</span>
-			</div>
-	</div>
+		<Container>
+			<Header>
+				GreenBinBot
+			</Header>
+
+			<ChatBody>
+				{messages.map((message) => (
+					<ChatMessgae key={message.id} $user={message.user}>
+						<div className="user">
+							{message.user}
+						</div>
+						<img 
+							src={ message.user === user.username ? user.icon.src : logo }
+							alt={ message.user === user.username ? user.icon.alt : 'logo' }
+							width="35px"
+							height="35px"
+						/>
+						<div className="text">
+							{message.text}
+						</div>
+					</ChatMessgae>
+				))}
+			</ChatBody>
+
+			<Footer>
+				<input 
+					type="text"
+					name="message"
+					placeholder="Type Message ..."
+					value={ inputMessage }
+					onChange={ ({target}) => setInputMessage(target.value) }
+				/>
+				<button
+					id="submit"
+					onClick={ handleSend }
+				>
+					Send
+				</button>
+			</Footer>
+		</Container>
 	)
 }
+
+const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	border: 2px solid ${({theme}) => theme.colors.border};
+	border-radius: 0.5em;
+	height: 100%;
+	width: 20rem;
+	flex: 1;
+`
+
+const Header = styled.div`
+	padding-left: 1.25em;
+	background-color: ${({theme}) => theme.colors.grey};
+	border-bottom: 2px solid ${({theme}) => theme.colors.border};
+	height: 3em;
+	font-size: ${({theme}) => theme.fontSizes.large};
+	font-weight: 600;
+  display: flex;
+  align-items: center;
+	border-radius: 0.5em 0.5em 0 0;
+`
+
+const ChatBody = styled.div`
+	overflow: auto;
+	padding: 1em;
+	height: 40em;
+	background-color: ${({theme}) => theme.colors.white};
+`
+
+const ChatMessgae = styled.div`
+	margin-bottom: 1em;
+
+	.user {
+		font-size: ${({theme}) => theme.fontSizes.small};
+		margin-bottom: 0.5em;
+		font-weight: 600;
+	}
+
+	img {
+		float: ${({$user}) => $user === user.username ? 'right' : 'left'};
+		border-radius: ${({$user}) => $user === user.username ? '50%' : ''};
+	}
+
+	.text {
+		border-radius: 0.7em;
+		background-color: ${({theme}) => theme.colors.blue};
+		color: ${({theme}) => theme.colors.white};
+		margin: 5px 0 0 50px;
+		padding: 0.5em 1em;
+		max-width: 65%;
+		word-wrap: break-word;
+		margin-left: ${({$user}) => $user === user.username ? '7em' : ''};
+		text-align: ${({$user}) => $user === user.username ? 'right' : 'left'};
+	}
+`
+
+const Footer = styled.div`
+	background-color: ${({theme}) => theme.colors.grey};
+	padding: 0.6em;
+	border-top: 2px solid ${({theme}) => theme.colors.border};
+	border-radius: 0 0 0.5em 0.5em;
+	height: 3.5em;
+
+	input {
+		height: 2em;
+		border-radius: 0.2em;
+		text-indent: 10px;
+		background-color: ${({theme}) => theme.colors.white};
+		width: 85%;
+	}
+
+	button {
+		width: 15%;
+		height: 2em;
+		background-color: ${({theme}) => theme.colors.blue};
+		color: ${({theme}) => theme.colors.white};
+		padding: 0px 1em;
+		border-radius: 0.2em;
+	}
+`
+
+
 
 export default GreenBinBot

@@ -1,60 +1,63 @@
-export const RankingTableData = [
+export const rankingTableData = [
 	{
-		no: '🏅️',
+		ranking: '🏅️',
+		rankingAriaLabel: '1',
 		community: 'Hankaniemi 11',
 		rate: 90,
 		type: 'Kellostalo'
 	},
 	{
-		no: '🥈',
+		ranking: '🥈',
+		rankingAriaLabel: '2',
 		community: 'Maratontie 3',
 		rate: 70,
 		type: 'Rivitalo'
 	},
 	{
-		no: '🥉',
+		ranking: '🥉',
+		rankingAriaLabel: '3',
 		community: 'Otanimitie 23',
 		rate: 55,
 		type: 'Opiskelija-asunnot'
 	},
 	{
-		no: '4',
+		ranking: '4',
 		community: 'Sello centhum',
 		rate: 40,
 		type: 'Kellostalo'
 	},	
 	{
-		no: '5',
+		ranking: '5',
 		community: 'Tapiola 1',
 		rate: 35,
 		type: 'Kellostalo'
 	},
 	{
-		no: '6',
+		ranking: '6',
 		community: 'Sellotontie 10',
 		rate: 30,
 		type: 'Rivitalo'
 	},
 	{
-		no: '7',
+		ranking: '7',
 		community: 'Rajakula 8',
 		rate: 30,
 		type: 'Rivitalo'
 	},
 	{
-		no: '8',
+		ranking: '8',
 		community: 'Tapiola 5',
 		rate: 30,
 		type: 'Kellostalo'
 	},
 	{
-		no: '9',
+		ranking: '9',
 		community: 'Jakoniemi 3',
 		rate: 30,
 		type: 'Rivitalo'
 	},
 	{
-		no: '10',
+		ranking: '10',
 		community: 'Tuppaka 8',
 		rate: 30,
 		type: 'Rivitalo'
