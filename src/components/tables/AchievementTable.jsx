@@ -1,16 +1,14 @@
 import { achievementTableData } from "../../data/tabledata/achievementTableData"
 import styled from "styled-components"
 import { v4 as uuidv4 } from 'uuid'
-import { TableContainer, Table, TableNameHeader } from "../../styles/Table"
+import { TableContainer, Table, TableCaption } from "../../styles/Table"
 
 const AchievementTable = () => (
 	<TableContainer>
 		<Table>
-			<TableNameHeader>
-				<tr>
-					<th colSpan="4">Achievements</th>
-				</tr>
-			</TableNameHeader>
+			<TableCaption>
+				Achievements
+			</TableCaption>
 			<tbody>
 				{achievementTableData.map(item =>
 					<TableRow key={ uuidv4() }>
@@ -41,7 +39,7 @@ const TableData = styled.td`
 	align-items: center;
 	height: 100%;
 	gap: 2em;
-	padding: 0 1.5em;
+	padding: 1.5em;
 
 	.achievement {
 		font-size: ${({theme}) => theme.fontSizes.medium};
@@ -50,7 +48,7 @@ const TableData = styled.td`
 
 	.date {
 		font-size: ${({theme}) => theme.fontSizes.small};
-		color: ${({theme}) => theme.colors.greyText};
+		color: ${({theme}) => theme.colors.darkGreyText};
 	}
 `
 

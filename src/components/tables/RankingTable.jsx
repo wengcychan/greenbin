@@ -2,16 +2,14 @@ import { user } from "../../data/user"
 import { rankingTableData } from "../../data/tabledata/rankingTableData"
 import styled from "styled-components"
 import { v4 as uuidv4 } from 'uuid'
-import { TableContainer, Table, TableNameHeader } from "../../styles/Table"
+import { TableContainer, Table, TableCaption } from "../../styles/Table"
 
 const RankingTable = () => (
 	<TableContainer>
 		<Table>
-			<TableNameHeader>
-				<tr>
-					<th colSpan="4">Ranking</th>
-				</tr>
-			</TableNameHeader>
+			<TableCaption>
+				Ranking
+			</TableCaption>
 			<TableInfoHeader>
 				<tr>
 					<th className="ranking">#</th>
@@ -84,7 +82,7 @@ const Badge = styled.span`
 		else if ($rate >= 70 && $rate < 90)
 			return '#0066cc'
 		else if ($rate >= 40 && $rate < 70)
-			return '#ed9a01'
+			return '#E08516'
 		else
 			return '#cf0018'
 	}}

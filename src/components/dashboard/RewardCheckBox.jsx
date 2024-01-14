@@ -5,24 +5,24 @@ const RewardCheckBox = () => (
 		<p className="title">Reward</p>
 		<ul>
 			<li>
-				<input type='checkbox' name='Free sauna session'/>
-				<label htmlFor='Free sauna session'>Free sauna session</label>
+				<input type='checkbox' id='freeSauna' name='freeSauna'/>
+				<label htmlFor='freeSauna'>Free sauna session</label>
 			</li>
 			<li>
-				<input type='checkbox' name='Party'/>
-				<label htmlFor='Party'>Party</label>
+				<input type='checkbox' id='party' name='party'/>
+				<label htmlFor='party'>Party</label>
 			</li>
 			<li>
-				<input type='checkbox' name='Garden'/>
-				<label htmlFor='Garden'>Garden</label>
+				<input type='checkbox' id='garden' name='garden'/>
+				<label htmlFor='garden'>Garden</label>
 			</li>
 			<li>
-				<input type='checkbox' name='Upgrade playground'/>
-				<label htmlFor='Upgrade playground'>Upgrade playground</label>
+				<input type='checkbox' id='upgradePlayground' name='upgradePlayground'/>
+				<label htmlFor='upgradePlayground'>Upgrade playground</label>
 			</li>
 			<li>
-				<input type='checkbox' name='Toy'/>
-				<label htmlFor='Toy'>Toy</label>
+				<input type='checkbox' id='toy' name='toy'/>
+				<label htmlFor='toy'>Toy</label>
 			</li>
 		</ul>
 	</Container>

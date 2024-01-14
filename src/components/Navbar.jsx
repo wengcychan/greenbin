@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom'
 import { navbarData } from '../data/navbarData'
 import { IconContext } from 'react-icons'
 import * as AiIcons from 'react-icons/ai'
 import styled from 'styled-components'
 import { v4 as uuidv4 } from 'uuid'
 import { user } from '../data/user'
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => (
   <Container>
@@ -17,10 +17,10 @@ const Navbar = () => (
         <ul>
           {navbarData.map((link) =>
             <li key={uuidv4()}>
-              <NavLink to={link.path}>
+              <NavigationLink to={link.path}>
                 {link.icon}
                 <span>{link.title}</span>
-              </NavLink>
+              </NavigationLink>
             </li>
           )}
         </ul>
@@ -57,8 +57,8 @@ const HorizontalBar = styled.div`
   margin-bottom: 1.5em;
 `
 
-const NavLink = styled(Link)`
-  font-size: ${({theme}) => theme.fontSizes.medium};
+const NavigationLink = styled(NavLink)`
+  font-size: ${({ theme }) => theme.fontSizes.medium};
   height: 3em;
   display: flex;
   align-items: center;
@@ -71,8 +71,12 @@ const NavLink = styled(Link)`
   }
 
   &:hover {
+    background-color: #051A0F;
+  }
+
+  &.active {
     background-color: #07a255;
   }
-`
+`;
 
 export default Navbar

@@ -40,6 +40,10 @@ export const GlobalStyles = createGlobalStyle`
     margin-bottom: 0.5em;
   }
 
+  *:focus-visible {
+    outline: 2px solid ${({theme}) => theme.colors.red};
+  }
+
   @media (max-width: 1024px) {
     html {
       font-size: 80%;

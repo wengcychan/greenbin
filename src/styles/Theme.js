@@ -3,13 +3,13 @@ export const theme = {
 		background: '#f4f4f4',
 		topbarBackground: '#1a3715',
 		navbarBackground: '#060b26',
-		greyText: '#7a7a7a',
 		darkGreyText: '#1a3715',
 		darkText: '#232323',
 		yellowHighlight:'#fcfeb5',
 		white: '#ffffff',
 		blue: '#007bff',
 		grey: '#e9e9e9',
+		red: '#ff0000',
 		border: '#d9d9d9'
 	},
 	fonts: {

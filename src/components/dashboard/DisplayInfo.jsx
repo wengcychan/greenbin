@@ -83,7 +83,7 @@ const Button = styled.button`
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	color: ${({theme}) => theme.colors.greyText};
+	color: ${({theme}) => theme.colors.darkGreyText};
 
 	.text {
 		margin-left: 1em;
@@ -95,7 +95,7 @@ const Button = styled.button`
 		font-size: ${({theme}) => theme.fontSizes.medium};
 		margin-top: 0.3em;
 		margin-right: 0.5em;
-		opacity: 60%;
+		opacity: 50%;
 	}
 `
 
