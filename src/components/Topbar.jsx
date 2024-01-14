@@ -1,12 +1,11 @@
 import logo from '../assets/greenbin/logo.png'
 import { user } from '../data/user'
 import styled from 'styled-components'
-import { device } from '../styles/BreakPoints'
 
 const Topbar = () => (
   <Container>
     <Logo>
-      <img src={logo} alt='logo' width='38' height='32'/>
+      <img src={logo} alt='logo' width='38' height='36'/>
       <span>GreenBin</span>
     </Logo>
     <UserInfo>
@@ -27,6 +26,7 @@ const Container = styled.div`
   background-color: ${({theme}) => theme.colors.topbarBackground};
   height: ${({theme}) => theme.layout.topbarHeight};
   color: ${({theme}) => theme.colors.white};
+  overflow: auto;
 `
 
 const Logo = styled.div`
@@ -54,7 +54,7 @@ const UserInfo = styled.div`
     margin-left: 15px;
   }
 
-  @media ${device.sm} {
+  @media (max-width: 600px) {
     display: none;
   }
 `

@@ -85,8 +85,10 @@ const Container = styled.div`
 	border: 2px solid ${({theme}) => theme.colors.border};
 	border-radius: 0.5em;
 	height: 100%;
-	width: 20rem;
+	width: 100%;
+	max-width: 500px;
 	flex: 1;
+	overflow: auto;
 `
 
 const Header = styled.div`
@@ -131,6 +133,7 @@ const ChatMessgae = styled.div`
 		max-width: 65%;
 		word-wrap: break-word;
 		margin-left: ${({$user}) => $user === user.username ? '7em' : ''};
+		margin-right: ${({$user}) => $user === user.username ? '50px' : ''};
 		text-align: ${({$user}) => $user === user.username ? 'right' : 'left'};
 	}
 `
@@ -148,6 +151,10 @@ const Footer = styled.div`
 		text-indent: 10px;
 		background-color: ${({theme}) => theme.colors.white};
 		width: 85%;
+
+		@media (max-width: 410px) {
+			width: 50%;
+		}
 	}
 
 	button {
@@ -157,6 +164,7 @@ const Footer = styled.div`
 		color: ${({theme}) => theme.colors.white};
 		padding: 0px 1em;
 		border-radius: 0.2em;
+		min-width: 50px;
 	}
 `
 

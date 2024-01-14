@@ -33,6 +33,7 @@ const Container = styled.nav`
   background-color: ${({theme}) => theme.colors.navbarBackground};
   color: ${({theme}) => theme.colors.white};
   flex: 1;
+  overflow: auto;
 `
 
 const Title = styled.div`

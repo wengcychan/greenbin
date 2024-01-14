@@ -25,6 +25,7 @@ const Container = styled.div`
 	flex: 1;
 	color: ${({theme}) => theme.colors.darkGreyText};
 	font-weight: bold;
+	max-width: 400px;
 
 	.title {
 		margin-bottom: 0.8em;
@@ -56,8 +57,8 @@ const ProgressBar = styled.div`
 		top: 0px;
 		right: 0px;
 		transform: translate(50%, -25%);
-		height: 30px;
-		width: 30px;
+		height: 2em;
+		width: 2em;
 		border-radius: 50%;
 		display: flex;
 		justify-content: center;

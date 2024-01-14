@@ -9,7 +9,6 @@ import NoPage from './pages/NoPage'
 import { GlobalStyles } from './styles/Global.js'
 import { styled, ThemeProvider } from 'styled-components'
 import { theme } from './styles/Theme.js'
-import { device } from './styles/BreakPoints.js'
 
 const App = () => {
 
@@ -41,7 +40,7 @@ const Container = styled.div`
   display: flex;
   min-height: ${({theme}) => theme.layout.contentHeight};
 
-  @media ${device.md} {
+  @media (max-width: 1200px) {
     flex-direction: column;
   }
 `
@@ -49,6 +48,7 @@ const Container = styled.div`
 const Section = styled.section`
   flex: 4;
   padding: 3em;
+  overflow: auto;
 `
 
 export default App

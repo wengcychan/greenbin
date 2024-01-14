@@ -1,7 +1,6 @@
 import RankingTable from "../components/tables/RankingTable"
 import AchievementTable from "../components/tables/AchievementTable"
 import styled from "styled-components"
-import { device } from '../styles/BreakPoints'
 
 const Ranking = () => (
   <>
@@ -18,8 +17,9 @@ const Container = styled.div`
   justify-content: space-between;
   margin-top: 1em;
   gap: 2em;
+  max-width: 1100px;
   
-  @media ${device.md} {
+  @media (max-width: 1024px) {
     flex-direction: column;
   }
 `

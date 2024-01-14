@@ -5,6 +5,8 @@ export const TableContainer = styled.div`
 	border: 2px solid ${({theme}) => theme.colors.grey};
   border-radius: 0.5em;
 	flex: 1;
+	max-width: 500px;
+	overflow: auto;
 `
 
 export const Table = styled.table`

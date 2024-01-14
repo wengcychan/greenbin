@@ -17,7 +17,7 @@ import styled from "styled-components"
 
 const Dashboard = () => {
 
-  const [ chart, setChart ] = useState(<Bar data={ costChartData } height={250} options={ costChartOptions } />)
+  const [ chart, setChart ] = useState(<Bar data={ costChartData } height={350} options={ costChartOptions } />)
   const [ chartBorderColor, setChartBorderColor ] = useState( costChartColor )
 
   const handleChart = (chartType, borderColor) => {
@@ -47,7 +47,7 @@ const Dashboard = () => {
           currentValue='150€'
           trendIcon={ <BsIcons.BsFillCaretDownFill style={{ color: '#3aa04c' }} /> }
           trend='10€'
-          handleChart={ () => handleChart(<Bar data={ costChartData } height={250} options={ costChartOptions } />, costChartColor) }
+          handleChart={ () => handleChart(<Bar data={ costChartData } height={350} options={ costChartOptions } />, costChartColor) }
           chart={ chart }
         />
         <DisplayInfo
@@ -57,7 +57,7 @@ const Dashboard = () => {
           currentValue='65kg'
           trendIcon={ <BsIcons.BsFillCaretDownFill style={{ color: '#3aa04c' }} /> }
           trend='3kg'
-          handleChart={ () => handleChart(<Bar data={ emissionChartData } height={250} options={ emissionChartOptions } />, emissionChartColor) }
+          handleChart={ () => handleChart(<Bar data={ emissionChartData } height={350} options={ emissionChartOptions } />, emissionChartColor) }
           chart={ chart }
         />
         <DisplayInfo
@@ -67,7 +67,7 @@ const Dashboard = () => {
           currentValue='No. 1'
           trendIcon={ <BsIcons.BsFillCaretUpFill style={{ color: '#3aa04c' }} /> }
           trend='1'
-          handleChart={ () => handleChart(<Line data={ rankingChartData } height={250} options={ rankingChartOptions } />, rankingChartColor) }
+          handleChart={ () => handleChart(<Line data={ rankingChartData } height={350} options={ rankingChartOptions } />, rankingChartColor) }
           chart={ chart }
         />
         <DisplayInfo
@@ -77,7 +77,7 @@ const Dashboard = () => {
           currentValue='53%'
           trendIcon={ <BsIcons.BsFillCaretUpFill style={{ color: '#3aa04c' }} /> }
           trend='4%'
-          handleChart={ () => handleChart(<Line data={ sortingRateChartData } height={250} options={ sortingRateChartOptions } />, sortingRateChartColor) }
+          handleChart={ () => handleChart(<Line data={ sortingRateChartData } height={350} options={ sortingRateChartOptions } />, sortingRateChartColor) }
           chart={ chart }
         />
       </ContainerDisplayInfo>
@@ -93,12 +93,16 @@ const Container = styled.div`
 `
 
 const ContainerGoalandChart = styled(Container)`
+  max-width: 1200px;
+
   @media (max-width: 1300px) {
     flex-direction: column;
   }
 `
 
 const ContainerDisplayInfo = styled(Container)`
+  max-width: 1200px;
+
   @media (max-width: 1024px) {
     flex-direction: column;
   }
@@ -110,6 +114,7 @@ const ChartContainer = styled.div`
   padding: 0.5em 1em;
   background-color: ${({theme}) => theme.colors.white};
   flex: 2;
+  max-width: 700px;
 `
 
 export default Dashboard

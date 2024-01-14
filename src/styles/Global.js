@@ -39,4 +39,16 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 2rem;
     margin-bottom: 0.5em;
   }
+
+  @media (max-width: 1024px) {
+    html {
+      font-size: 80%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    html {
+      font-size: 62.5%;
+    }
+  }
 `

@@ -28,11 +28,11 @@ const DisplayInfo = ({ title, titleIcon, backgroundColor, currentValue, trendIco
 
 const Container = styled.div`
 	background-color: ${({$backgroundColor}) => $backgroundColor};
-	width: 23%;
 	border-radius: 0.5em;
+	width: 100%;
 
 	@media (max-width: 1024px) {
-		width: 70%;
+		max-width: 200px;
 	}
 `
 
