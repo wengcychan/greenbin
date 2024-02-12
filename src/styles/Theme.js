@@ -6,9 +6,11 @@ export const theme = {
 		darkGreyText: '#1a3715',
 		darkText: '#232323',
 		yellowHighlight:'#fcfeb5',
+		buttonHover: '#005aba',
 		white: '#ffffff',
 		blue: '#007bff',
 		grey: '#e9e9e9',
+		lightGrey: '#f5f5f5',
 		red: '#ff0000',
 		border: '#d9d9d9'
 	},

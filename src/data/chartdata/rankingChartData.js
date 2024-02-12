@@ -26,7 +26,7 @@ export const rankingChartOptions = {
       padding: 30,
     },
 		legend: {
-		display: false,
+			display: false,
 			position: 'bottom',
 			labels: {
 				usePointStyle: true,

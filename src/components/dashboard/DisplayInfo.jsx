@@ -97,6 +97,10 @@ const Button = styled.button`
 		margin-right: 0.5em;
 		opacity: 50%;
 	}
+
+	&:hover {
+		background-color: ${({theme}) => theme.colors.lightGrey};
+	}
 `
 
 export default DisplayInfo

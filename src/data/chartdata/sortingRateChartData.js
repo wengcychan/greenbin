@@ -16,7 +16,6 @@ export const sortingRateChartData = {
 			pointRadius: 1,
 			borderColor: "#d5ae598F",
 			backgroundColor: "#d5ae592F",
-			fill: true,
 			cubicInterpolationMode: 'monotone',
 			tension: 0.4
 		}
@@ -36,19 +35,19 @@ export const sortingRateChartOptions = {
     },
 		legend: {
 			position: 'bottom',
-		align: "end",
-		labels: {
-			usePointStyle: true,
-			pointStyle: 'rect',
-		},
+			align: "end",
+			labels: {
+				usePointStyle: true,
+				pointStyle: 'rect',
+			},
 		},
 	},
 	responsive: true,
 	scales: {
 		x: {
-		grid: {
-			display: false,
-		},
+			grid: {
+				display: false,
+			},
 			ticks: {
 				font: {
 					size: 14,

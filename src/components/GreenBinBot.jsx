@@ -49,7 +49,7 @@ const GreenBinBot = () => {
 						</div>
 						<img 
 							src={ message.user === user.username ? user.icon.src : logo }
-							alt={ message.user === user.username ? user.icon.alt : 'logo' }
+							alt={ message.user === user.username ? user.icon.alt : 'GreenBinBot' }
 							width="35px"
 							height="35px"
 						/>
@@ -157,6 +157,10 @@ const Footer = styled.div`
 		}
 	}
 
+	input:focus {
+    outline: 2px solid ${({theme}) => theme.colors.black};
+  }
+
 	button {
 		width: 15%;
 		height: 2em;
@@ -166,8 +170,10 @@ const Footer = styled.div`
 		border-radius: 0.2em;
 		min-width: 50px;
 	}
+
+	button:hover {
+		background-color: ${({theme}) => theme.colors.buttonHover};
+	}
 `
-
-
 
 export default GreenBinBot

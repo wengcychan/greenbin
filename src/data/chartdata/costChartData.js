@@ -53,19 +53,19 @@ export const costChartOptions = {
     },
     legend: {
       position: 'bottom',
-	  align: "end",
-    labels: {
-      usePointStyle: true,
-      pointStyle: 'rect',
-    },
+	    align: "end",
+      labels: {
+        usePointStyle: true,
+        pointStyle: 'rect',
+      },
     },
   },
   responsive: true,
   scales: {
     x: {
-		grid: {
-			display: false,
-		},
+		  grid: {
+			  display: false,
+		  },
       stacked: true,
       ticks: {
         font: {

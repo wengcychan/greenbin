@@ -1,10 +1,11 @@
 import logo from '../assets/greenbin/logo.png'
 import { user } from '../data/user'
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom';
 
 const Topbar = () => (
   <Container>
-    <Logo>
+    <Logo to="/">
       <img src={logo} alt='logo' width='38' height='36'/>
       <span>GreenBin</span>
     </Logo>
@@ -29,7 +30,7 @@ const Container = styled.div`
   overflow: auto;
 `
 
-const Logo = styled.div`
+const Logo = styled(NavLink)`
   display: flex;
   align-items: center;
 

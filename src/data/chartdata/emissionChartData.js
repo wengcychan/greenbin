@@ -40,19 +40,19 @@ export const emissionChartOptions = {
     },
     legend: {
       position: 'bottom',
-	  align: "end",
-    labels: {
-      usePointStyle: true,
-      pointStyle: 'rect',
-    },
+	    align: "end",
+      labels: {
+        usePointStyle: true,
+        pointStyle: 'rect',
+      },
     },
   },
   responsive: true,
   scales: {
     x: {
-		grid: {
-			display: false,
-		},
+		  grid: {
+			  display: false,
+		  },
       ticks: {
         font: {
           size: 14,
@@ -61,17 +61,17 @@ export const emissionChartOptions = {
       },
     },
     y: {
-		grid: {
-			display: false,
-		},
+		  grid: {
+			  display: false,
+		  },
+      display: true,
+      title: {
         display: true,
-        title: {
-          display: true,
-          text: 'CO2 Emission  (Kg)',
-        },
-        suggestedMin: 0,
-        suggestedMax: 50
+        text: 'CO2 Emission  (kg)',
       },
+      suggestedMin: 0,
+      suggestedMax: 50
+    },
     y1: {
       display: true,
       position: 'right',
